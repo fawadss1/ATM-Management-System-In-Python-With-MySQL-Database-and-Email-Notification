@@ -21,8 +21,3 @@ try:
     import Welcome
 except:
     pass
-
-# External Packages Used in this Project
-# beautifultable
-# mysql-connector-python
-# pyttsx3
