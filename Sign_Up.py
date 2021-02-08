@@ -1,5 +1,6 @@
 welcome_message = lambda: print("Congratulations! Registration has been Completed Successfully")
 import smtplib
+import hashlib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from Narrator import Narrator
@@ -88,7 +89,7 @@ try:
                 print("\n" + "|" + "**" * 38 + "|")
                 Narrator("|\t\t\t\tPlease Check Your Email Inbox For Account Details" + " " * 12 + "|")
                 print("|" + "**" * 38 + "|")
-
+             PIN_Confirm = "%546" + hashlib.md5(PIN_Confirm.encode('utf-8')).hexdigest() + "546%"
 
             f = db.cursor()
             f.execute("CREATE TABLE IF NOT EXISTS `userinfo` (id INT AUTO_INCREMENT PRIMARY KEY,name VARCHAR(255),father_name "
