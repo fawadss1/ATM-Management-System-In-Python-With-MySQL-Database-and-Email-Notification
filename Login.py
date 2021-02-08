@@ -1,5 +1,6 @@
-from Narrator import Narrator
-from Forgot_PIN import forgot_Pin
+import Narrator.Narrator
+import Forgot_PIN.forgot_Pin
+import hashlib
 
 try:
     from DB_Connection import db
@@ -13,6 +14,7 @@ try:
         print("*" + "---" * 15 + "*")
         Narrator(" Enter Your 4 Digits PIN Code : ")
         PIN_Confirmlg = input().lower()
+        PIN_Confirmlg = "%546" + hashlib.md5(PIN_Confirmlg.encode('utf-8')).hexdigest() + "546%"
         print("*" + "---" * 15 + "*")
         f = db.cursor()
         f.execute("SELECT * FROM `userinfo` WHERE username='" + User_Name + "' AND pin='" + PIN_Confirmlg + "'")
