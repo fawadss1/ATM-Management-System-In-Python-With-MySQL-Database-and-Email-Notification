@@ -91,13 +91,7 @@ try:
 
 
             f = db.cursor()
-            f.execute("SHOW TABLES")
-            tbl = f.fetchall()
-            if ("userinfo",) in tbl:
-                pass
-            else:
-                f.execute(
-                    "CREATE TABLE `userinfo` (id INT AUTO_INCREMENT PRIMARY KEY,name VARCHAR(255),father_name "
+            f.execute("CREATE TABLE IF NOT EXISTS `userinfo` (id INT AUTO_INCREMENT PRIMARY KEY,name VARCHAR(255),father_name "
                     "VARCHAR(255),dob VARCHAR(255),email VARCHAR(255),username VARCHAR(255),pin VARCHAR(11),previous_amount INT,deposit_amount INT,withdrawal_amount INT,current_amount INT)")
             f.execute("SELECT * FROM `userinfo` WHERE username= '" + User_Name + "'")
             f.fetchall()
