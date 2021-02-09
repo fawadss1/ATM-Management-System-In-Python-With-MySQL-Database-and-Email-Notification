@@ -1,5 +1,6 @@
 try:
     import mysql.connector as mysql
+    import Narrator.Narrator
 
     Database = "atm"
 
@@ -17,4 +18,6 @@ try:
         database=Database
     )
 except:
-    print("Sorry! Your DataBase Server is Down! Please Run Your Database Server")
+    print("\n" + "|" + "**" * 38 + "|")
+    Narrator("|\t\t\t\tYour DataBase Server is Down! Please Try Again" + " " * 15 + "|")
+    print("|" + "**" * 38 + "|")
